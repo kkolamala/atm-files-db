@@ -4,10 +4,11 @@ from os import path
 import json #module makes it easy to parse JSON strings and files containing JSON object
 
 directoryPath = './database/'
+sessionDirectory = './auth_session/'
+filePath = os.path.join(directoryPath,"bankDB.json")
 
 def createFile(userDetails):
     try:
-        filePath = os.path.join(directoryPath,"bankDB.json")
         if(path.exists(filePath)):
             #read the data from file and append the new data
             data = readFile(filePath)
@@ -17,9 +18,14 @@ def createFile(userDetails):
     except:
         error = sys.exc_info()[0]
         print('exception occured adding data to file - ',error )
-        
 
-def readFile(fileName):
+def createSessionFile(accountNumber):
+    fileName = accountNumber + '.txt'
+    sessionFilepath = os.path.join(sessionDirectory,fileName)
+    with open(sessionFilepath,'w') as outfile:
+        json.dump(accountNumber,outfile)
+    
+def readFile(fileName='./database/bankDB.json'):
     data = {}
     with open(fileName) as userData:
         data = json.load(userData)
@@ -29,6 +35,10 @@ def readFile(fileName):
 def deleteFile(fileName):
     pass
 
-def updateFile(fileName,data):
-    pass
+def updateFile(accountNumber,data):
+    usersData = readFile();
+    usersData[accountNumber] = data
+    with open(filePath,'w') as outfile:
+        json.dump(usersData,outfile)
+    
 

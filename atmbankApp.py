@@ -1,4 +1,5 @@
 import validations
+import bankOperations
 import utility
 import sys
 sys.path.append("./database")
@@ -12,35 +13,34 @@ print(' ************************ ')
 def login():
     print('welcome to login page')
     accountNumber = input('Enter Account Numebr :')
-    password = input('Enter Password')
+    password = input('Enter Password :')
     accountDetailsResponse = accountAPI.verifyAccount(accountNumber,password)
     if(type(accountDetailsResponse) is dict):
         print('login successful')
-        userData = accountDetailsResponse[accountNumber]
-        balance = userData['balance']
-        bankOPerations(accountNumber,balance)
+        bankOPerations(accountNumber)
     else:
         print(accountDetailsResponse)
         
-def bankOPerations(accountNumber,balance):
-    print('What would you like to do? 1.withdraw \n 2.Deposit \n 3.balance check \n 4.complaint issue 5.Close Account')
+def bankOPerations(accountNumber):
+    print('What would you like to do?\n 1.withdraw \n 2.Deposit \n 3.balance check \n 4.complaint issue 5.Close Account')
     selectedOption = input('Please select an option: ')
     
     if(selectedOption == '1'):
-        withdraw(accountNumber)
+        bankOperations.withdraw(accountNumber)
             
     if(selectedOption == '2'):
-        deposit()
+        bankOperations.deposit(accountNumber)
         
     if(selectedOption == '3'):
-        balanceCheck()
+        bankOperations.balanceCheck(accountNumber)
             
     if(selectedOption == '4'):
-        registerComplaint()
+        bankOperations.registerComplaint(accountNumber)
             
     if(selectedOption == '5'):
-        closeAccount()
-        
+        bankOperations.closeAccount(accountNumber)
+ 
+   
         
 def registerFields():
     fNmae = input('Enter First Name :')
