@@ -22,7 +22,7 @@ def login():
         print(accountDetailsResponse)
         
 def bankOPerations(accountNumber):
-    print('What would you like to do?\n 1.withdraw \n 2.Deposit \n 3.balance check \n 4.complaint issue 5.Close Account')
+    print('What would you like to do?\n 1.withdraw \n 2.Deposit \n 3.balance check \n 4.complaint issue \n 5.log out')
     selectedOption = input('Please select an option: ')
     
     if(selectedOption == '1'):
@@ -38,7 +38,7 @@ def bankOPerations(accountNumber):
         bankOperations.registerComplaint(accountNumber)
             
     if(selectedOption == '5'):
-        bankOperations.closeAccount(accountNumber)
+        bankOperations.logout(accountNumber)
  
    
         

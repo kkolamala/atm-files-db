@@ -13,8 +13,12 @@ def getBalance(accountNumber):
     except:
         error = sys.exc_info()[0]
         print('exception occured while creating account - ',error )
-
-def depositAmount(accountNumber,amountToDeposit):
+'''
+update balance on 
+Depost and 
+Withdraw
+'''
+def updateAmount(accountNumber,amountToDeposit):
     #get user account details
     try:
         userDict = {}
@@ -25,9 +29,6 @@ def depositAmount(accountNumber,amountToDeposit):
         error = sys.exc_info()[0]
         print('exception occured while creating account - ',error )
         
-    
 
-def withdrawAmount(accountNumber,amountToWithdraw):
-    pass
 
 

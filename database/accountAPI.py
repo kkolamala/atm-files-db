@@ -43,8 +43,8 @@ def getAccountDetailsByAccountNumber(accountNumber):
             userDict[key] = value
             return userDict
 
-def deleteAccount(accountNumber):
-    pass
+def deleteSession(accountNumber):
+    fileUtility.deleteFile(accountNumber)
 
 
 def ping():

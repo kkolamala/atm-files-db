@@ -1,10 +1,11 @@
 import sys
 sys.path.append("./database")
 import bankOperationsAPI 
+import fileUtility
 
 def deposit(accountNumber):
     depositAmount = input('Enter amount to deposit: ')
-    bankOperationsAPI.depositAmount(accountNumber,depositAmount)
+    bankOperationsAPI.updateAmount(accountNumber,depositAmount)
     
 def withdraw(accountNumber):
     withdrawAmount = int(input('Enter amount to withdraw'))
@@ -15,7 +16,7 @@ def withdraw(accountNumber):
         try:
             #reduce the withdrawl amount from balance
             balanceAfterWithdrawl = balance - withdrawAmount
-            bankOperationsAPI.depositAmount(accountNumber,balanceAfterWithdrawl)
+            bankOperationsAPI.updateAmount(accountNumber,balanceAfterWithdrawl)
             print('Take your cash $ %d'% withdrawAmount)
         except:
             print('some error occured withdrawign cash')
@@ -30,6 +31,9 @@ def registerComplaint(accountNumber):
     complaint = input('enter your complaint: ')
     print('your complaint is registered. will get back to you soon')
 
-def closeAccount(accountNumber):
-    print('your account closed')
+def logout(accountNumber):
+    fileUtility.deleteFile(accountNumber)
+    print('logout success')
+    
+    
     

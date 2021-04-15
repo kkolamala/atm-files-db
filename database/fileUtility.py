@@ -1,6 +1,5 @@
 import sys
-import os.path
-from os import path
+import os
 import json #module makes it easy to parse JSON strings and files containing JSON object
 
 directoryPath = './database/'
@@ -32,8 +31,23 @@ def readFile(fileName='./database/bankDB.json'):
     return data
     
 
-def deleteFile(fileName):
-    pass
+def deleteFile(accountNumber):
+    isDeleteSuccessful = False
+    fileName = accountNumber + '.txt'
+    sessionFile = os.path.join(sessionDirectory,fileName)
+    if os.path.exists(sessionFile):
+        try:
+            os.remove(sessionFile)
+            isDeleteSuccessful = True
+            return isDeleteSuccessful
+        except:
+            error = sys.exc_info()[0]
+            print('exception occured adding data to file - ',error )
+        finally:
+            return isDeleteSuccessful
+        
+        
+            
 
 def updateFile(accountNumber,data):
     usersData = readFile();
