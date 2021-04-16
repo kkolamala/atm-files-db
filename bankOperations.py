@@ -1,5 +1,6 @@
 import sys
 sys.path.append("./database")
+sys.path.append("./api")
 import bankOperationsAPI 
 import fileUtility
 
@@ -8,7 +9,7 @@ def deposit(accountNumber):
     bankOperationsAPI.updateAmount(accountNumber,depositAmount)
     
 def withdraw(accountNumber):
-    withdrawAmount = int(input('Enter amount to withdraw'))
+    withdrawAmount = int(input('Enter amount to withdraw:'))
     balance = int(bankOperationsAPI.getBalance(accountNumber))
     if withdrawAmount > balance :
         print('your withdrawl amount $ %d exceeds available balance - $ %d'%(withdrawAmount,balance))

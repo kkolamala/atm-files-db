@@ -3,6 +3,7 @@ import bankOperations
 import utility
 import sys
 sys.path.append("./database")
+sys.path.append("./api")
 bankName = 'ABC Bank'
 import accountAPI
 

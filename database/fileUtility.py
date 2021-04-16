@@ -8,7 +8,7 @@ filePath = os.path.join(directoryPath,"bankDB.json")
 
 def createFile(userDetails):
     try:
-        if(path.exists(filePath)):
+        if(os.path.exists(filePath)):
             #read the data from file and append the new data
             data = readFile(filePath)
             userDetails.update(data)
