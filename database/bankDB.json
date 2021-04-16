@@ -1,1 +1,30 @@
-{"8778485944": {"FirstName": "kris", "LastName": "kola", "Email": "test@test.com", "Password": "123", "balance": 0}, "2076349454": {"FirstName": "user2", "LastName": "sd", "Email": "test@test1.com", "Password": "pass", "balance": "100"}, "6742895190": {"FirstName": "sad", "LastName": "sad", "Email": "test@test.com", "Password": "pass1", "balance": 8}}
+{
+  "5898724897": {
+    "FirstName": "kris1",
+    "LastName": "kol1",
+    "Email": "test231@test.com",
+    "Password": "1233",
+    "balance": 0
+  },
+  "8778485944": {
+    "FirstName": "kris",
+    "LastName": "kola",
+    "Email": "test@test.com",
+    "Password": "123",
+    "balance": 0
+  },
+  "2076349454": {
+    "FirstName": "user2",
+    "LastName": "sd",
+    "Email": "test@test1.com",
+    "Password": "pass",
+    "balance": "100"
+  },
+  "6742895190": {
+    "FirstName": "sad",
+    "LastName": "sad",
+    "Email": "test1@test.com",
+    "Password": "pass1",
+    "balance": 8
+  }
+}

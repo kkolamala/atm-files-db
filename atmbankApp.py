@@ -83,8 +83,12 @@ def register():
         fieldValueDict["balance"] = 0;
         userDetailsDict[accountNumber] = fieldValueDict
         try:
-            accountAPI.createAccount(userDetailsDict)
-            print('Registration is successful. Account Number - %d'% accountNumber )
+            #Check if email is unioque prior to account creation
+            if accountAPI.isEmailUnique(fieldValueDict['Email']):
+                accountAPI.createAccount(userDetailsDict)
+                print('Registration is successful. Account Number - %d'% accountNumber )
+            else:
+                print('Email - %s already exists. Please use a different email to register'% fieldValueDict['Email'] )
         except:
             print('error registering user')
     

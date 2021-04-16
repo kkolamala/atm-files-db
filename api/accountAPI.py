@@ -45,6 +45,13 @@ def getAccountDetailsByAccountNumber(accountNumber):
 
 def deleteSession(accountNumber):
     fileUtility.deleteFile(accountNumber)
+    
+def isEmailUnique(email):
+    usersData = fileUtility.readFile()
+    for key,value in usersData.items():
+        if value['Email'] == email:
+            return False
+    return True
 
 
 def ping():

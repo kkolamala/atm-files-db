@@ -46,9 +46,6 @@ def deleteFile(accountNumber):
         finally:
             return isDeleteSuccessful
         
-        
-            
-
 def updateFile(accountNumber,data):
     usersData = readFile();
     usersData[accountNumber] = data
