@@ -1,13 +1,5 @@
 
 import re #re module provides support for regular Expressions
-def isEmailExists(email):
-    pass
-
-def isEmailValid(email):
-    pass
-
-def isUserSessionValid(accountNumber):
-    pass
 
 def isFieldEmpty(field):
     return True if field else False
